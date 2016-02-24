@@ -24,6 +24,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
     @IBOutlet weak var major1: UILabel!
     @IBOutlet weak var rssi1: UILabel!
     @IBOutlet weak var proximity1: UILabel!
+    @IBOutlet weak var accuracy: UILabel!
     
     var myLocationManager:CLLocationManager!
     var myBeaconRegion:CLBeaconRegion!
@@ -179,15 +180,18 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
                 let minorID = beacon.minor;
                 let majorID = beacon.major;
                 let rssi = beacon.rssi;
+                let accuracy = beacon.accuracy;
                 
                 print("UUID: \(beaconUUID.UUIDString)");
                 print("minorID: \(minorID)");
                 print("majorID: \(majorID)");
                 print("RSSI: \(rssi)");
+                print("accuracy: \(accuracy)")
                 uuid.text = beaconUUID.UUIDString
                 minor1.text = minorID.stringValue
                 major1.text = majorID.stringValue
-                rssi1.text = String(beacon.rssi)
+                rssi1.text = String(rssi)
+                self.accuracy.text = String(accuracy)
                 
                 
                 switch (beacon.proximity) {
