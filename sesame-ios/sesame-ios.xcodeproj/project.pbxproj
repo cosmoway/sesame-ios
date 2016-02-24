@@ -1,0 +1,517 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		59AC43D51C7C5CD400BCE278 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AC43D41C7C5CD400BCE278 /* AppDelegate.swift */; };
+		59AC43D71C7C5CD400BCE278 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AC43D61C7C5CD400BCE278 /* ViewController.swift */; };
+		59AC43DA1C7C5CD400BCE278 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59AC43D81C7C5CD400BCE278 /* Main.storyboard */; };
+		59AC43DC1C7C5CD400BCE278 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59AC43DB1C7C5CD400BCE278 /* Assets.xcassets */; };
+		59AC43DF1C7C5CD400BCE278 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59AC43DD1C7C5CD400BCE278 /* LaunchScreen.storyboard */; };
+		59AC43EA1C7C5CD400BCE278 /* sesame_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AC43E91C7C5CD400BCE278 /* sesame_iosTests.swift */; };
+		59AC43F51C7C5CD400BCE278 /* sesame_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AC43F41C7C5CD400BCE278 /* sesame_iosUITests.swift */; };
+		59AC44031C7C5E3100BCE278 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59AC44021C7C5E3100BCE278 /* CoreLocation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		59AC43E61C7C5CD400BCE278 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 59AC43C91C7C5CD400BCE278 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 59AC43D01C7C5CD400BCE278;
+			remoteInfo = "sesame-ios";
+		};
+		59AC43F11C7C5CD400BCE278 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 59AC43C91C7C5CD400BCE278 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 59AC43D01C7C5CD400BCE278;
+			remoteInfo = "sesame-ios";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		59AC43D11C7C5CD400BCE278 /* sesame-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sesame-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		59AC43D41C7C5CD400BCE278 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		59AC43D61C7C5CD400BCE278 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		59AC43D91C7C5CD400BCE278 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		59AC43DB1C7C5CD400BCE278 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		59AC43DE1C7C5CD400BCE278 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		59AC43E01C7C5CD400BCE278 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		59AC43E51C7C5CD400BCE278 /* sesame-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "sesame-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		59AC43E91C7C5CD400BCE278 /* sesame_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sesame_iosTests.swift; sourceTree = "<group>"; };
+		59AC43EB1C7C5CD400BCE278 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		59AC43F01C7C5CD400BCE278 /* sesame-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "sesame-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		59AC43F41C7C5CD400BCE278 /* sesame_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sesame_iosUITests.swift; sourceTree = "<group>"; };
+		59AC43F61C7C5CD400BCE278 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		59AC44021C7C5E3100BCE278 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		59AC43CE1C7C5CD400BCE278 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59AC44031C7C5E3100BCE278 /* CoreLocation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		59AC43E21C7C5CD400BCE278 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		59AC43ED1C7C5CD400BCE278 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		59AC43C81C7C5CD400BCE278 = {
+			isa = PBXGroup;
+			children = (
+				59AC44021C7C5E3100BCE278 /* CoreLocation.framework */,
+				59AC43D31C7C5CD400BCE278 /* sesame-ios */,
+				59AC43E81C7C5CD400BCE278 /* sesame-iosTests */,
+				59AC43F31C7C5CD400BCE278 /* sesame-iosUITests */,
+				59AC43D21C7C5CD400BCE278 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		59AC43D21C7C5CD400BCE278 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				59AC43D11C7C5CD400BCE278 /* sesame-ios.app */,
+				59AC43E51C7C5CD400BCE278 /* sesame-iosTests.xctest */,
+				59AC43F01C7C5CD400BCE278 /* sesame-iosUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		59AC43D31C7C5CD400BCE278 /* sesame-ios */ = {
+			isa = PBXGroup;
+			children = (
+				59AC43D41C7C5CD400BCE278 /* AppDelegate.swift */,
+				59AC43D61C7C5CD400BCE278 /* ViewController.swift */,
+				59AC43D81C7C5CD400BCE278 /* Main.storyboard */,
+				59AC43DB1C7C5CD400BCE278 /* Assets.xcassets */,
+				59AC43DD1C7C5CD400BCE278 /* LaunchScreen.storyboard */,
+				59AC43E01C7C5CD400BCE278 /* Info.plist */,
+			);
+			path = "sesame-ios";
+			sourceTree = "<group>";
+		};
+		59AC43E81C7C5CD400BCE278 /* sesame-iosTests */ = {
+			isa = PBXGroup;
+			children = (
+				59AC43E91C7C5CD400BCE278 /* sesame_iosTests.swift */,
+				59AC43EB1C7C5CD400BCE278 /* Info.plist */,
+			);
+			path = "sesame-iosTests";
+			sourceTree = "<group>";
+		};
+		59AC43F31C7C5CD400BCE278 /* sesame-iosUITests */ = {
+			isa = PBXGroup;
+			children = (
+				59AC43F41C7C5CD400BCE278 /* sesame_iosUITests.swift */,
+				59AC43F61C7C5CD400BCE278 /* Info.plist */,
+			);
+			path = "sesame-iosUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		59AC43D01C7C5CD400BCE278 /* sesame-ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 59AC43F91C7C5CD400BCE278 /* Build configuration list for PBXNativeTarget "sesame-ios" */;
+			buildPhases = (
+				59AC43CD1C7C5CD400BCE278 /* Sources */,
+				59AC43CE1C7C5CD400BCE278 /* Frameworks */,
+				59AC43CF1C7C5CD400BCE278 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "sesame-ios";
+			productName = "sesame-ios";
+			productReference = 59AC43D11C7C5CD400BCE278 /* sesame-ios.app */;
+			productType = "com.apple.product-type.application";
+		};
+		59AC43E41C7C5CD400BCE278 /* sesame-iosTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 59AC43FC1C7C5CD400BCE278 /* Build configuration list for PBXNativeTarget "sesame-iosTests" */;
+			buildPhases = (
+				59AC43E11C7C5CD400BCE278 /* Sources */,
+				59AC43E21C7C5CD400BCE278 /* Frameworks */,
+				59AC43E31C7C5CD400BCE278 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				59AC43E71C7C5CD400BCE278 /* PBXTargetDependency */,
+			);
+			name = "sesame-iosTests";
+			productName = "sesame-iosTests";
+			productReference = 59AC43E51C7C5CD400BCE278 /* sesame-iosTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		59AC43EF1C7C5CD400BCE278 /* sesame-iosUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 59AC43FF1C7C5CD400BCE278 /* Build configuration list for PBXNativeTarget "sesame-iosUITests" */;
+			buildPhases = (
+				59AC43EC1C7C5CD400BCE278 /* Sources */,
+				59AC43ED1C7C5CD400BCE278 /* Frameworks */,
+				59AC43EE1C7C5CD400BCE278 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				59AC43F21C7C5CD400BCE278 /* PBXTargetDependency */,
+			);
+			name = "sesame-iosUITests";
+			productName = "sesame-iosUITests";
+			productReference = 59AC43F01C7C5CD400BCE278 /* sesame-iosUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		59AC43C91C7C5CD400BCE278 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "坂野健";
+				TargetAttributes = {
+					59AC43D01C7C5CD400BCE278 = {
+						CreatedOnToolsVersion = 7.2;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+					59AC43E41C7C5CD400BCE278 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 59AC43D01C7C5CD400BCE278;
+					};
+					59AC43EF1C7C5CD400BCE278 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 59AC43D01C7C5CD400BCE278;
+					};
+				};
+			};
+			buildConfigurationList = 59AC43CC1C7C5CD400BCE278 /* Build configuration list for PBXProject "sesame-ios" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 59AC43C81C7C5CD400BCE278;
+			productRefGroup = 59AC43D21C7C5CD400BCE278 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				59AC43D01C7C5CD400BCE278 /* sesame-ios */,
+				59AC43E41C7C5CD400BCE278 /* sesame-iosTests */,
+				59AC43EF1C7C5CD400BCE278 /* sesame-iosUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		59AC43CF1C7C5CD400BCE278 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59AC43DF1C7C5CD400BCE278 /* LaunchScreen.storyboard in Resources */,
+				59AC43DC1C7C5CD400BCE278 /* Assets.xcassets in Resources */,
+				59AC43DA1C7C5CD400BCE278 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		59AC43E31C7C5CD400BCE278 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		59AC43EE1C7C5CD400BCE278 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		59AC43CD1C7C5CD400BCE278 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59AC43D71C7C5CD400BCE278 /* ViewController.swift in Sources */,
+				59AC43D51C7C5CD400BCE278 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		59AC43E11C7C5CD400BCE278 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59AC43EA1C7C5CD400BCE278 /* sesame_iosTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		59AC43EC1C7C5CD400BCE278 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59AC43F51C7C5CD400BCE278 /* sesame_iosUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		59AC43E71C7C5CD400BCE278 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 59AC43D01C7C5CD400BCE278 /* sesame-ios */;
+			targetProxy = 59AC43E61C7C5CD400BCE278 /* PBXContainerItemProxy */;
+		};
+		59AC43F21C7C5CD400BCE278 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 59AC43D01C7C5CD400BCE278 /* sesame-ios */;
+			targetProxy = 59AC43F11C7C5CD400BCE278 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		59AC43D81C7C5CD400BCE278 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				59AC43D91C7C5CD400BCE278 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		59AC43DD1C7C5CD400BCE278 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				59AC43DE1C7C5CD400BCE278 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		59AC43F71C7C5CD400BCE278 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		59AC43F81C7C5CD400BCE278 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		59AC43FA1C7C5CD400BCE278 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "sesame-ios/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "t.sesame-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		59AC43FB1C7C5CD400BCE278 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "sesame-ios/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "t.sesame-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		59AC43FD1C7C5CD400BCE278 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "sesame-iosTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "t.sesame-iosTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/sesame-ios.app/sesame-ios";
+			};
+			name = Debug;
+		};
+		59AC43FE1C7C5CD400BCE278 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "sesame-iosTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "t.sesame-iosTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/sesame-ios.app/sesame-ios";
+			};
+			name = Release;
+		};
+		59AC44001C7C5CD400BCE278 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "sesame-iosUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "t.sesame-iosUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "sesame-ios";
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		59AC44011C7C5CD400BCE278 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "sesame-iosUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "t.sesame-iosUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "sesame-ios";
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		59AC43CC1C7C5CD400BCE278 /* Build configuration list for PBXProject "sesame-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				59AC43F71C7C5CD400BCE278 /* Debug */,
+				59AC43F81C7C5CD400BCE278 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		59AC43F91C7C5CD400BCE278 /* Build configuration list for PBXNativeTarget "sesame-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				59AC43FA1C7C5CD400BCE278 /* Debug */,
+				59AC43FB1C7C5CD400BCE278 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		59AC43FC1C7C5CD400BCE278 /* Build configuration list for PBXNativeTarget "sesame-iosTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				59AC43FD1C7C5CD400BCE278 /* Debug */,
+				59AC43FE1C7C5CD400BCE278 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		59AC43FF1C7C5CD400BCE278 /* Build configuration list for PBXNativeTarget "sesame-iosUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				59AC44001C7C5CD400BCE278 /* Debug */,
+				59AC44011C7C5CD400BCE278 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 59AC43C91C7C5CD400BCE278 /* Project object */;
+}
