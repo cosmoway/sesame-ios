@@ -34,48 +34,61 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
         
         print("init")
         
-        // ロケーションマネージャの作成.
-        myLocationManager = CLLocationManager()
+        if(CLLocationManager.isMonitoringAvailableForClass(CLCircularRegion)) {
         
-        // デリゲートを自身に設定.
-        myLocationManager.delegate = self
+            // ロケーションマネージャの作成.
+            myLocationManager = CLLocationManager()
         
-        // セキュリティ認証のステータスを取得
-        let status = CLLocationManager.authorizationStatus()
+            // デリゲートを自身に設定.
+            myLocationManager.delegate = self
         
-        // 取得精度の設定.
-        myLocationManager.desiredAccuracy = kCLLocationAccuracyBest
+            // セキュリティ認証のステータスを取得
+            let status = CLLocationManager.authorizationStatus()
         
-        // 取得頻度の設定.(1mごとに位置情報取得)
-        myLocationManager.distanceFilter = 1
+            // 取得精度の設定.
+            myLocationManager.desiredAccuracy = kCLLocationAccuracyBest
         
-        // まだ認証が得られていない場合は、認証ダイアログを表示
-        if(status != CLAuthorizationStatus.AuthorizedAlways) {
-            print("CLAuthorizedStatus: \(status)");
+            // 取得頻度の設定.(1mごとに位置情報取得)
+            myLocationManager.distanceFilter = 1
+        
+            // まだ認証が得られていない場合は、認証ダイアログを表示
+            if(status != CLAuthorizationStatus.AuthorizedAlways) {
+                print("CLAuthorizedStatus: \(status)");
             
-            // まだ承認が得られていない場合は、認証ダイアログを表示.
-            myLocationManager.requestAlwaysAuthorization()
+                // まだ承認が得られていない場合は、認証ダイアログを表示.
+                myLocationManager.requestAlwaysAuthorization()
+            }
+        
+        
+            // BeaconのUUIDを設定.
+            let uuid = NSUUID(UUIDString: "AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAAAA")
+        
+            // リージョンを作成.
+            myBeaconRegion = CLBeaconRegion(proximityUUID: uuid!,identifier: "EstimoteRegion")
+        
+            // ディスプレイがOffでもイベントが通知されるように設定(trueにするとディスプレイがOnの時だけ反応).
+            myBeaconRegion.notifyEntryStateOnDisplay = false
+        
+            // 入域通知の設定.
+            myBeaconRegion.notifyOnEntry = true
+        
+            // 退域通知の設定.
+            myBeaconRegion.notifyOnExit = true
+        
+            beaconRegionArray.append(myBeaconRegion)
+            
+            myLocationManager.startMonitoringForRegion(myBeaconRegion)
+        } else {
+            let alert = UIAlertController(title: "確認", message: "お使いの端末ではiBeaconをご利用できません。", preferredStyle: .Alert)
+            
+            let okAction = UIAlertAction(title: "OK", style: .Default) { (action) -> Void in
+                print("OK button tapped.")
+            }
+            
+            alert.addAction(okAction)
+            
+            presentViewController(alert, animated: true, completion: nil)
         }
-        
-        
-        // BeaconのUUIDを設定.
-        let uuid = NSUUID(UUIDString: "AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAAAA")
-        
-        // リージョンを作成.
-        myBeaconRegion = CLBeaconRegion(proximityUUID: uuid!,identifier: "EstimoteRegion")
-        
-        // ディスプレイがOffでもイベントが通知されるように設定(trueにするとディスプレイがOnの時だけ反応).
-        myBeaconRegion.notifyEntryStateOnDisplay = false
-        
-        // 入域通知の設定.
-        myBeaconRegion.notifyOnEntry = true
-        
-        // 退域通知の設定.
-        myBeaconRegion.notifyOnExit = true
-        
-        beaconRegionArray.append(myBeaconRegion)
-        
-        myLocationManager.startMonitoringForRegion(myBeaconRegion)
         
     }
     
