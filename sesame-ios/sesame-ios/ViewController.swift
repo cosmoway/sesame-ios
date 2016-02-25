@@ -28,7 +28,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
     
     var myLocationManager:CLLocationManager!
     var myBeaconRegion:CLBeaconRegion!
-    var beaconRegionArray = [CLBeaconRegion]()
+    var beaconRegion = CLBeaconRegion()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,7 +76,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
             // 退域通知の設定.
             myBeaconRegion.notifyOnExit = true
         
-            beaconRegionArray.append(myBeaconRegion)
+            beaconRegion = myBeaconRegion
             
             myLocationManager.startMonitoringForRegion(myBeaconRegion)
         } else {
@@ -116,25 +116,23 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
         }
         print(" CLAuthorizationStatus: \(statusStr)")
         
-        for region in beaconRegionArray {
-            manager.startMonitoringForRegion(region)
-        }
+        manager.startMonitoringForRegion(beaconRegion)
     }
     
     /*
-    STEP2(Delegate): LocationManagerがモニタリングを開始したというイベントを受け取る.
+    (Delegate): LocationManagerがモニタリングを開始したというイベントを受け取る.
     */
     func locationManager(manager: CLLocationManager, didStartMonitoringForRegion region: CLRegion) {
         
         print("didStartMonitoringForRegion");
         
-        // STEP3: この時点でビーコンがすでにRegion内に入っている可能性があるので、その問い合わせを行う
-        // (Delegate didDetermineStateが呼ばれる: STEP4)
+        // この時点でビーコンがすでにRegion内に入っている可能性があるので、その問い合わせを行う
+        // (Delegate didDetermineStateが呼ばれる)
         manager.requestStateForRegion(region);
     }
     
     /*
-    STEP4(Delegate): 現在リージョン内にいるかどうかの通知を受け取る.
+    (Delegate): 現在リージョン内にいるかどうかの通知を受け取る.
     */
     func locationManager(manager: CLLocationManager, didDetermineState state: CLRegionState, forRegion region: CLRegion) {
         
@@ -145,8 +143,8 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
         case .Inside: // リージョン内にいる
             print("CLRegionStateInside:");
             
-            // STEP5: すでに入っている場合は、そのままRangingをスタートさせる
-            // (Delegate didRangeBeacons: STEP6)
+            // すでに入っている場合は、そのままRangingをスタートさせる
+            // (Delegate didRangeBeacons)
             manager.startRangingBeaconsInRegion(region as! CLBeaconRegion)
             break;
             
@@ -163,7 +161,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
     }
     
     /*
-    STEP6(Delegate): ビーコンがリージョン内に入り、その中のビーコンをNSArrayで渡される.
+    (Delegate): ビーコンがリージョン内に入り、その中のビーコンをNSArrayで渡される.
     */
     func locationManager(manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], inRegion region: CLBeaconRegion) {
         
@@ -171,7 +169,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
         // rangingが開始されると１秒毎に呼ばれるため、beaconがある場合のみ処理をするようにすること.
         if(beacons.count > 0){
             
-            // STEP7: 発見したBeaconの数だけLoopをまわす
+            // 発見したBeaconの数だけLoopをまわす
             for var i = 0; i < beacons.count; i++ {
                 
                 let beacon = beacons[i] 
@@ -213,6 +211,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
                     
                 case CLProximity.Immediate:
                     print("Proximity: Immediate");
+                    sendLocalNotificationWithMessage("近いよ uuid:\(UIDevice.currentDevice().identifierForVendor!.UUIDString) major:\(majorID) minor:\(minorID)")
                     proximity1.text = "Immediate"
                     break
                 }
