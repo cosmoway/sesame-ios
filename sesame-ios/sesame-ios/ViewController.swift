@@ -252,4 +252,16 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
     }
     
 }
-
+extension String {
+    var sha256: String! {
+        return self.cStringUsingEncoding(NSUTF8StringEncoding).map { cstr in
+            var chars = [UInt8](count: Int(CC_SHA256_DIGEST_LENGTH), repeatedValue: 0)
+            CC_SHA256(
+                cstr,
+                CC_LONG(self.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)),
+                &chars
+            )
+            return chars.map { String(format: "%02X", $0) }.reduce("", combine: +)
+        }
+    }
+}
