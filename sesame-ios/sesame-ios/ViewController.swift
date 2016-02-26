@@ -211,7 +211,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
                     
                 case CLProximity.Immediate:
                     print("Proximity: Immediate");
-                    sendLocalNotificationWithMessage("近いよ uuid:\(UIDevice.currentDevice().identifierForVendor!.UUIDString) major:\(majorID) minor:\(minorID)")
+                    sendLocalNotificationWithMessage("近いよ uuid:\(UIDevice.currentDevice().identifierForVendor!.UUIDString.sha256) major:\(majorID.stringValue.sha256) minor:\(minorID.stringValue.sha256)")
                     proximity1.text = "Immediate"
                     break
                 }
