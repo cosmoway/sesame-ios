@@ -34,7 +34,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
         super.viewDidLoad()
         
         print("init")
-        
+        //端末でiBeaconが使用できるかの判定できなければアラートをだす。
         if(CLLocationManager.isMonitoringAvailableForClass(CLCircularRegion)) {
         
             // ロケーションマネージャの作成.
