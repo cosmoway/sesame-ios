@@ -26,6 +26,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
     @IBOutlet weak var proximity1: UILabel!
     @IBOutlet weak var accuracy: UILabel!
     
+    var sendFlag: Bool = false
     var myLocationManager:CLLocationManager!
     var myBeaconRegion:CLBeaconRegion!
     var beaconRegion = CLBeaconRegion()
@@ -34,6 +35,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
         super.viewDidLoad()
         
         print("init")
+        print(UIDevice.currentDevice().identifierForVendor!.UUIDString)
         //端末でiBeaconが使用できるかの判定できなければアラートをだす。
         if(CLLocationManager.isMonitoringAvailableForClass(CLCircularRegion)) {
         
@@ -174,16 +176,16 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
                 
                 let beacon = beacons[i] 
                 
-                let beaconUUID = beacon.proximityUUID;
-                let minorID = beacon.minor;
-                let majorID = beacon.major;
-                let rssi = beacon.rssi;
-                let accuracy = beacon.accuracy;
+                let beaconUUID = beacon.proximityUUID
+                let minorID = beacon.minor
+                let majorID = beacon.major
+                let rssi = beacon.rssi
+                let accuracy = beacon.accuracy
                 
-                print("UUID: \(beaconUUID.UUIDString)");
-                print("minorID: \(minorID)");
-                print("majorID: \(majorID)");
-                print("RSSI: \(rssi)");
+                print("UUID: \(beaconUUID.UUIDString)")
+                print("minorID: \(minorID)")
+                print("majorID: \(majorID)")
+                print("RSSI: \(rssi)")
                 print("accuracy: \(accuracy)")
                 uuid.text = beaconUUID.UUIDString
                 minor1.text = minorID.stringValue
@@ -195,24 +197,59 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
                 switch (beacon.proximity) {
                     
                 case CLProximity.Unknown :
-                    print("Proximity: Unknown");
+                    print("Proximity: Unknown")
                     proximity1.text = "Unknown"
                     break
                     
                 case CLProximity.Far:
-                    print("Proximity: Far");
+                    print("Proximity: Far")
                     proximity1.text = "Far"
                     break
                     
                 case CLProximity.Near:
-                    print("Proximity: Near");
+                    print("Proximity: Near")
                     proximity1.text = "Near"
                     break
                     
                 case CLProximity.Immediate:
-                    print("Proximity: Immediate");
-                    sendLocalNotificationWithMessage("近いよ uuid:\(UIDevice.currentDevice().identifierForVendor!.UUIDString.sha256) major:\(majorID.stringValue.sha256) minor:\(minorID.stringValue.sha256)")
+                    print("Proximity: Immediate")
                     print("近いよ uuid:\(UIDevice.currentDevice().identifierForVendor!.UUIDString.sha256) major:\(majorID.stringValue.sha256) minor:\(minorID.stringValue.sha256)")
+                    if (!sendFlag) {
+                        // create the url-request
+                        let urlString = "http://10.0.0.3:10080/?data=\("sakano|"+majorID.stringValue+"|"+minorID.stringValue).sha256)"
+                        let request = NSMutableURLRequest(URL: NSURL(string: urlString)!)
+                        
+                        // set the method(HTTP-GET)
+                        request.HTTPMethod = "GET"
+                        
+                        // use NSURLSessionDataTask
+                        let task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { data, response, error in
+                            if (error == nil) {
+                                let result = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+                                switch (result) {
+                                case "200 OK":
+                                    self.sendLocalNotificationWithMessage("開錠します！")
+                                    break
+                                case "400 Bad Request":
+                                    self.sendLocalNotificationWithMessage("コードの見直しをお願いします。")
+                                    break
+                                case "403 Forbidden":
+                                    self.sendLocalNotificationWithMessage("認証失敗！登録をお願いします。")
+                                    break
+                                default:
+                                    self.sendLocalNotificationWithMessage(result as String)
+                                    break
+                                }
+                                print(result)
+                                self.sendFlag = true
+                            } else {
+                                self.sendLocalNotificationWithMessage("\(error)")
+                                print(error)
+                                self.sendFlag = true
+                            }
+                        })
+                        task.resume()
+                    }
                     proximity1.text = "Immediate"
                     break
                 }
@@ -227,6 +264,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didEnterRegion region: CLRegion) {
         print("didEnterRegion");
         sendLocalNotificationWithMessage("領域に入りました")
+        sendFlag = false
         
         // Rangingを始める
         manager.startRangingBeaconsInRegion(region as! CLBeaconRegion)
