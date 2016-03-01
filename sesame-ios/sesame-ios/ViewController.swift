@@ -216,7 +216,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
                     print("近いよ uuid:\(UIDevice.currentDevice().identifierForVendor!.UUIDString.sha256) major:\(majorID.stringValue.sha256) minor:\(minorID.stringValue.sha256)")
                     if (!sendFlag) {
                         // create the url-request
-                        let urlString = "http://10.0.0.3:10080/?data=\("sakano|"+majorID.stringValue+"|"+minorID.stringValue).sha256)"
+                        let urlString = "http://10.0.0.3:10080/?data=\(UIDevice.currentDevice().identifierForVendor!.UUIDString+"|"+majorID.stringValue+"|"+minorID.stringValue).sha256)"
                         let request = NSMutableURLRequest(URL: NSURL(string: urlString)!)
                         
                         // set the method(HTTP-GET)
