@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		598514CD1C85A08F0088C1EF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 598514CC1C85A08F0088C1EF /* AudioToolbox.framework */; };
 		59AC43D51C7C5CD400BCE278 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AC43D41C7C5CD400BCE278 /* AppDelegate.swift */; };
 		59AC43D71C7C5CD400BCE278 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AC43D61C7C5CD400BCE278 /* ViewController.swift */; };
 		59AC43DA1C7C5CD400BCE278 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59AC43D81C7C5CD400BCE278 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		5920980D1C7FF87700B20DF6 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		598514CC1C85A08F0088C1EF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		59AC43D11C7C5CD400BCE278 /* sesame-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sesame-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		59AC43D41C7C5CD400BCE278 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59AC43D61C7C5CD400BCE278 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				598514CD1C85A08F0088C1EF /* AudioToolbox.framework in Frameworks */,
 				59AC44031C7C5E3100BCE278 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -81,6 +84,7 @@
 		59AC43C81C7C5CD400BCE278 = {
 			isa = PBXGroup;
 			children = (
+				598514CC1C85A08F0088C1EF /* AudioToolbox.framework */,
 				59AC44021C7C5E3100BCE278 /* CoreLocation.framework */,
 				59AC43D31C7C5CD400BCE278 /* sesame-ios */,
 				59AC43E81C7C5CD400BCE278 /* sesame-iosTests */,

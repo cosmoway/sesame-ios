@@ -15,6 +15,7 @@
 
 import UIKit
 import Foundation
+import AudioToolbox
 import CoreLocation
 
 class ViewController: UIViewController,CLLocationManagerDelegate {
@@ -216,7 +217,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
                     print("近いよ uuid:\(UIDevice.currentDevice().identifierForVendor!.UUIDString.sha256) major:\(majorID.stringValue.sha256) minor:\(minorID.stringValue.sha256)")
                     if (!sendFlag) {
                         // create the url-request
-                        let urlString = "http://10.0.0.3:10080/?data=\(UIDevice.currentDevice().identifierForVendor!.UUIDString+"|"+majorID.stringValue+"|"+minorID.stringValue).sha256)"
+                        let urlString = "http://10.0.0.3:10080/?data=\((UIDevice.currentDevice().identifierForVendor!.UUIDString+"|"+majorID.stringValue+"|"+minorID.stringValue).sha256)"
                         let request = NSMutableURLRequest(URL: NSURL(string: urlString)!)
                         
                         // set the method(HTTP-GET)
@@ -229,6 +230,8 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
                                 switch (result) {
                                 case "200 OK":
                                     self.sendLocalNotificationWithMessage("開錠します！")
+                                    let soundIdRing:SystemSoundID = 1002  // new-mail.caf
+                                    AudioServicesPlaySystemSound(soundIdRing)
                                     break
                                 case "400 Bad Request":
                                     self.sendLocalNotificationWithMessage("コードの見直しをお願いします。")
@@ -286,6 +289,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
     func sendLocalNotificationWithMessage(message: String!) {
         let notification:UILocalNotification = UILocalNotification()
         notification.alertBody = message
+        notification.soundName = UILocalNotificationDefaultSoundName
         
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
     }
