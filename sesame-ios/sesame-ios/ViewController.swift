@@ -37,6 +37,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
         
         print("init")
         print(UIDevice.currentDevice().identifierForVendor!.UUIDString)
+        
         //端末でiBeaconが使用できるかの判定できなければアラートをだす。
         if(CLLocationManager.isMonitoringAvailableForClass(CLCircularRegion)) {
         
@@ -170,6 +171,9 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
         
         // 範囲内で検知されたビーコンはこのbeaconsにCLBeaconオブジェクトとして格納される
         // rangingが開始されると１秒毎に呼ばれるため、beaconがある場合のみ処理をするようにすること.
+        // 通信用のConfigを生成.
+        
+
         if(beacons.count > 0){
             
             // 発見したBeaconの数だけLoopをまわす
@@ -205,17 +209,13 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
                 case CLProximity.Far:
                     print("Proximity: Far")
                     proximity1.text = "Far"
-                    break
-                    
-                case CLProximity.Near:
-                    print("Proximity: Near")
-                    proximity1.text = "Near"
-                    break
-                    
-                case CLProximity.Immediate:
-                    print("Proximity: Immediate")
-                    print("近いよ uuid:\(UIDevice.currentDevice().identifierForVendor!.UUIDString.sha256) major:\(majorID.stringValue.sha256) minor:\(minorID.stringValue.sha256)")
                     if (!sendFlag) {
+                        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+                        //短いタイムアウト
+                        config.timeoutIntervalForRequest = 10
+                        //長居タイムアウト
+                        config.timeoutIntervalForResource = 20
+                        let session = NSURLSession(configuration: config)
                         // create the url-request
                         let urlString = "http://10.0.0.3:10080/?data=\((UIDevice.currentDevice().identifierForVendor!.UUIDString+"|"+majorID.stringValue+"|"+minorID.stringValue).sha256)"
                         let request = NSMutableURLRequest(URL: NSURL(string: urlString)!)
@@ -224,7 +224,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
                         request.HTTPMethod = "GET"
                         
                         // use NSURLSessionDataTask
-                        let task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { data, response, error in
+                        let task = session.dataTaskWithRequest(request, completionHandler: { data, response, error in
                             if (error == nil) {
                                 let result = NSString(data: data!, encoding: NSUTF8StringEncoding)!
                                 switch (result) {
@@ -246,13 +246,23 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
                                 print(result)
                                 self.sendFlag = true
                             } else {
-                                self.sendLocalNotificationWithMessage("\(error)")
+                                self.sendLocalNotificationWithMessage("タイムアウトしました！ネット環境をご確認ください。")
                                 print(error)
                                 self.sendFlag = true
                             }
                         })
                         task.resume()
                     }
+                    break
+                    
+                case CLProximity.Near:
+                    print("Proximity: Near")
+                    proximity1.text = "Near"
+                    break
+                    
+                case CLProximity.Immediate:
+                    print("Proximity: Immediate")
+                    print("近いよ uuid:\(UIDevice.currentDevice().identifierForVendor!.UUIDString.sha256) major:\(majorID.stringValue.sha256) minor:\(minorID.stringValue.sha256)")
                     proximity1.text = "Immediate"
                     break
                 }
@@ -290,8 +300,9 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
         let notification:UILocalNotification = UILocalNotification()
         notification.alertBody = message
         notification.soundName = UILocalNotificationDefaultSoundName
-        
-        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        if (!sendFlag) {
+            UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        }
     }
     
 }
