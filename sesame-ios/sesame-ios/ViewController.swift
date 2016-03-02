@@ -252,7 +252,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
                         config.timeoutIntervalForResource = 20
                         let session = NSURLSession(configuration: config)
                         // create the url-request
-                        let urlString = "http://10.0.0.3:10080/?data=\((UIDevice.currentDevice().identifierForVendor!.UUIDString+"|"+majorID.stringValue+"|"+minorID.stringValue).sha256)"
+                        let urlString = "http://sesame.local:10080/?data=\((UIDevice.currentDevice().identifierForVendor!.UUIDString+"|"+majorID.stringValue+"|"+minorID.stringValue).sha256)"
                         let request = NSMutableURLRequest(URL: NSURL(string: urlString)!)
                         
                         // set the method(HTTP-GET)
