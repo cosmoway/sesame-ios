@@ -297,12 +297,11 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
     
     //ローカル通知
     func sendLocalNotificationWithMessage(message: String!) {
+        UIApplication.sharedApplication().cancelAllLocalNotifications();
         let notification:UILocalNotification = UILocalNotification()
         notification.alertBody = message
         notification.soundName = UILocalNotificationDefaultSoundName
-        if (!sendFlag) {
-            UIApplication.sharedApplication().scheduleLocalNotification(notification)
-        }
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
     }
     
 }
