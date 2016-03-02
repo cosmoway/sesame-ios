@@ -16,6 +16,7 @@
 		59AC43EA1C7C5CD400BCE278 /* sesame_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AC43E91C7C5CD400BCE278 /* sesame_iosTests.swift */; };
 		59AC43F51C7C5CD400BCE278 /* sesame_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AC43F41C7C5CD400BCE278 /* sesame_iosUITests.swift */; };
 		59AC44031C7C5E3100BCE278 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59AC44021C7C5E3100BCE278 /* CoreLocation.framework */; };
+		7AD9ABF2A97A190957E1CD7F /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7744F9BFDBC201825B7AF24A /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,9 @@
 		59AC43F41C7C5CD400BCE278 /* sesame_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sesame_iosUITests.swift; sourceTree = "<group>"; };
 		59AC43F61C7C5CD400BCE278 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		59AC44021C7C5E3100BCE278 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		7744F9BFDBC201825B7AF24A /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB063F62C0FB7D9FFA70B0B6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		F5616039AB1151C7E84D0E0A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +65,7 @@
 			files = (
 				598514CD1C85A08F0088C1EF /* AudioToolbox.framework in Frameworks */,
 				59AC44031C7C5E3100BCE278 /* CoreLocation.framework in Frameworks */,
+				7AD9ABF2A97A190957E1CD7F /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +86,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		182156B9351C8D759D29DF64 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7744F9BFDBC201825B7AF24A /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		59AC43C81C7C5CD400BCE278 = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +103,8 @@
 				59AC43E81C7C5CD400BCE278 /* sesame-iosTests */,
 				59AC43F31C7C5CD400BCE278 /* sesame-iosUITests */,
 				59AC43D21C7C5CD400BCE278 /* Products */,
+				668C691DAB0D5D6421AADCCB /* Pods */,
+				182156B9351C8D759D29DF64 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -135,6 +150,15 @@
 			path = "sesame-iosUITests";
 			sourceTree = "<group>";
 		};
+		668C691DAB0D5D6421AADCCB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CB063F62C0FB7D9FFA70B0B6 /* Pods.debug.xcconfig */,
+				F5616039AB1151C7E84D0E0A /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -142,9 +166,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 59AC43F91C7C5CD400BCE278 /* Build configuration list for PBXNativeTarget "sesame-ios" */;
 			buildPhases = (
+				B613061913E139EFF340377D /* Check Pods Manifest.lock */,
 				59AC43CD1C7C5CD400BCE278 /* Sources */,
 				59AC43CE1C7C5CD400BCE278 /* Frameworks */,
 				59AC43CF1C7C5CD400BCE278 /* Resources */,
+				D60A530D77E19E0B4A457BBC /* Embed Pods Frameworks */,
+				007141CC716E1D3165D20B2D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -265,6 +292,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		007141CC716E1D3165D20B2D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B613061913E139EFF340377D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D60A530D77E19E0B4A457BBC /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		59AC43CD1C7C5CD400BCE278 /* Sources */ = {
@@ -410,6 +485,7 @@
 		};
 		59AC43FA1C7C5CD400BCE278 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB063F62C0FB7D9FFA70B0B6 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "sesame-ios/Info.plist";
@@ -423,6 +499,7 @@
 		};
 		59AC43FB1C7C5CD400BCE278 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F5616039AB1151C7E84D0E0A /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "sesame-ios/Info.plist";

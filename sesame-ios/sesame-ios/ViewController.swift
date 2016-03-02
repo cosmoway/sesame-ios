@@ -16,6 +16,7 @@
 import UIKit
 import Foundation
 import AudioToolbox
+import ReachabilitySwift
 import CoreLocation
 
 class ViewController: UIViewController,CLLocationManagerDelegate {
@@ -26,6 +27,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
     @IBOutlet weak var rssi1: UILabel!
     @IBOutlet weak var proximity1: UILabel!
     @IBOutlet weak var accuracy: UILabel!
+    @IBOutlet weak var phoneUuid: UILabel!
     
     var sendFlag: Bool = false
     var myLocationManager:CLLocationManager!
@@ -36,8 +38,41 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
         super.viewDidLoad()
         
         print("init")
+        phoneUuid.text = UIDevice.currentDevice().identifierForVendor!.UUIDString
         print(UIDevice.currentDevice().identifierForVendor!.UUIDString)
+        let reachability: Reachability
+        do {
+            reachability = try Reachability.reachabilityForInternetConnection()
+        } catch {
+            print("Unable to create Reachability")
+            return
+        }
         
+        
+        reachability.whenReachable = { reachability in
+            // this is called on a background thread, but UI updates must
+            // be on the main thread, like this:
+            dispatch_async(dispatch_get_main_queue()) {
+                if reachability.isReachableViaWiFi() {
+                    print("Reachable via WiFi")
+                } else {
+                    print("Reachable via Cellular")
+                }
+            }
+        }
+        reachability.whenUnreachable = { reachability in
+            // this is called on a background thread, but UI updates must
+            // be on the main thread, like this:
+            dispatch_async(dispatch_get_main_queue()) {
+                print("Not reachable")
+            }
+        }
+        
+        do {
+            try reachability.startNotifier()
+        } catch {
+            print("Unable to start notifier")
+        }
         //端末でiBeaconが使用できるかの判定できなければアラートをだす。
         if(CLLocationManager.isMonitoringAvailableForClass(CLCircularRegion)) {
         
