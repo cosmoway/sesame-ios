@@ -269,15 +269,15 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
                                 let result = NSString(data: data!, encoding: NSUTF8StringEncoding)!
                                 switch (result) {
                                 case "200 OK":
-                                    self.sendLocalNotificationWithMessage("開錠します！")
+                                    self.sendLocalNotificationWithMessage("開錠されました。")
                                     let soundIdRing:SystemSoundID = 1002  // new-mail.caf
                                     AudioServicesPlaySystemSound(soundIdRing)
                                     break
                                 case "400 Bad Request":
-                                    self.sendLocalNotificationWithMessage("コードの見直しをお願いします。")
+                                    self.sendLocalNotificationWithMessage("予期せぬエラーが発生致しました。開発者に御問合せ下さい。")
                                     break
                                 case "403 Forbidden":
-                                    self.sendLocalNotificationWithMessage("認証失敗！登録をお願いします。")
+                                    self.sendLocalNotificationWithMessage("認証に失敗致しました。システム管理者に登録を御確認下さい。")
                                     break
                                 default:
                                     self.sendLocalNotificationWithMessage(result as String)
@@ -286,7 +286,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
                                 print(result)
                                 self.sendFlag = true
                             } else {
-                                self.sendLocalNotificationWithMessage("タイムアウトしました！ネット環境をご確認ください。")
+                                self.sendLocalNotificationWithMessage("通信処理が正常に終了されませんでした。通信環境を御確認下さい。")
                                 print(error)
                                 self.sendFlag = true
                             }
