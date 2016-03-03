@@ -18,8 +18,10 @@ import Foundation
 import AudioToolbox
 import ReachabilitySwift
 import CoreLocation
+import CoreBluetooth
 
-class ViewController: UIViewController,CLLocationManagerDelegate {
+
+class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralManagerDelegate {
     
     @IBOutlet weak var uuid: UILabel!
     @IBOutlet weak var minor1: UILabel!
@@ -33,6 +35,9 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
     var myLocationManager:CLLocationManager!
     var myBeaconRegion:CLBeaconRegion!
     var beaconRegion = CLBeaconRegion()
+    var myCentralManager: CBCentralManager!
+    var bluetoothOn = true
+    var wifiOn = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +45,9 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
         print("init")
         phoneUuid.text = UIDevice.currentDevice().identifierForVendor!.UUIDString
         print(UIDevice.currentDevice().identifierForVendor!.UUIDString)
+        // CoreBluetoothを初期化および始動.
+        myCentralManager = CBCentralManager(delegate: self, queue: nil, options: nil)
+
         let reachability: Reachability
         do {
             reachability = try Reachability.reachabilityForInternetConnection()
@@ -48,15 +56,14 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
             return
         }
         
-        
         reachability.whenReachable = { reachability in
-            // this is called on a background thread, but UI updates must
-            // be on the main thread, like this:
             dispatch_async(dispatch_get_main_queue()) {
                 if reachability.isReachableViaWiFi() {
                     print("Reachable via WiFi")
+                    self.wifiOn = true
                 } else {
                     print("Reachable via Cellular")
+                    self.wifiOn = false
                 }
             }
         }
@@ -65,6 +72,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
             // be on the main thread, like this:
             dispatch_async(dispatch_get_main_queue()) {
                 print("Not reachable")
+                self.wifiOn = false
             }
         }
         
@@ -73,6 +81,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
         } catch {
             print("Unable to start notifier")
         }
+        
         //端末でiBeaconが使用できるかの判定できなければアラートをだす。
         if(CLLocationManager.isMonitoringAvailableForClass(CLCircularRegion)) {
         
@@ -130,6 +139,52 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
             presentViewController(alert, animated: true, completion: nil)
         }
         
+    }
+    
+    func centralManagerDidUpdateState(central: CBCentralManager) {
+        print("state \(central.state)");
+        switch (central.state) {
+        case .PoweredOff:
+            print("Bluetoothの電源がOff")
+            bluetoothOn = false
+        case .PoweredOn:
+            print("Bluetoothの電源はOn")
+            bluetoothOn = true
+        case .Resetting:
+            print("レスティング状態")
+        case .Unauthorized:
+            print("非認証状態")
+        case .Unknown:
+            print("不明")
+        case .Unsupported:
+            print("非対応")
+        }
+        var alertMessage: String?
+        
+        if (!bluetoothOn && !wifiOn) {
+            alertMessage = "Wi-Fi/BluetoothをONにしてください。"
+            print("wifiとbluetoothをオンにしてください。")
+        } else if (!bluetoothOn) {
+            alertMessage = "BluetoothをONにしてください。"
+            print("bluetoothをオンにしてください。")
+        } else if (!wifiOn) {
+            alertMessage = "Wi-FiをONにしてください。"
+            print("wifiをオンにしてください。")
+        }
+        
+        if (alertMessage != nil) {
+            let alertController = UIAlertController(title: "通知", message: alertMessage, preferredStyle: .Alert)
+            
+            let otherAction = UIAlertAction(title: "はい", style: .Default) {
+                action in NSLog("はいボタンが押されました")
+                self.myCentralManager = nil
+            }
+            
+            // addActionした順に左から右にボタンが配置されます
+            alertController.addAction(otherAction)
+            
+            presentViewController(alertController, animated: true, completion: nil)
+        }
     }
     
     /*
