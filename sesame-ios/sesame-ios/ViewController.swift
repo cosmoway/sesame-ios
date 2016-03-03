@@ -38,10 +38,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
     var myCentralManager: CBCentralManager!
     var bluetoothOn = true
     var wifiOn = true
+    var errorFlag = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:"retransmission:", name: "actionPressed", object: nil)
         print("init")
         phoneUuid.text = UIDevice.currentDevice().identifierForVendor!.UUIDString
         print(UIDevice.currentDevice().identifierForVendor!.UUIDString)
@@ -139,6 +140,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
             presentViewController(alert, animated: true, completion: nil)
         }
         
+    }
+    
+    func retransmission(notification:NSNotification) {
+        sendFlag = false
+        print("押された")
     }
     
     func centralManagerDidUpdateState(central: CBCentralManager) {
@@ -330,9 +336,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
                                     break
                                 case "400 Bad Request":
                                     self.sendLocalNotificationWithMessage("予期せぬエラーが発生致しました。開発者に御問合せ下さい。")
+                                    self.errorFlag = true
                                     break
                                 case "403 Forbidden":
                                     self.sendLocalNotificationWithMessage("認証に失敗致しました。システム管理者に登録を御確認下さい。")
+                                    self.errorFlag = true
                                     break
                                 default:
                                     self.sendLocalNotificationWithMessage(result as String)
@@ -342,6 +350,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
                                 self.sendFlag = true
                             } else {
                                 self.sendLocalNotificationWithMessage("通信処理が正常に終了されませんでした。通信環境を御確認下さい。")
+                                self.errorFlag = true
                                 print(error)
                                 self.sendFlag = true
                             }
@@ -402,11 +411,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
     
     //ローカル通知
     func sendLocalNotificationWithMessage(message: String!) {
-        UIApplication.sharedApplication().cancelAllLocalNotifications();
-        let notification:UILocalNotification = UILocalNotification()
-        notification.alertBody = message
-        notification.soundName = UILocalNotificationDefaultSoundName
-        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        if (!sendFlag) {
+            UIApplication.sharedApplication().cancelAllLocalNotifications();
+            let notification:UILocalNotification = UILocalNotification()
+            notification.alertBody = message
+            if (self.errorFlag) {
+                notification.category = "custom"
+            }
+            notification.soundName = UILocalNotificationDefaultSoundName
+            UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        }
     }
     
 }
