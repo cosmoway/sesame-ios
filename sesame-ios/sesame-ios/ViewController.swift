@@ -244,6 +244,11 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
                 case CLProximity.Far:
                     print("Proximity: Far")
                     proximity1.text = "Far"
+                    break
+                    
+                case CLProximity.Near:
+                    print("Proximity: Near")
+                    proximity1.text = "Near"
                     if (!sendFlag) {
                         let config = NSURLSessionConfiguration.defaultSessionConfiguration()
                         //短いタイムアウト
@@ -288,11 +293,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
                         })
                         task.resume()
                     }
-                    break
-                    
-                case CLProximity.Near:
-                    print("Proximity: Near")
-                    proximity1.text = "Near"
+
                     break
                     
                 case CLProximity.Immediate:
@@ -313,10 +314,24 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
         print("didEnterRegion");
         sendLocalNotificationWithMessage("領域に入りました")
         sendFlag = false
-        
-        // Rangingを始める
-        manager.startRangingBeaconsInRegion(region as! CLBeaconRegion)
-        
+        var bgTask = UIBackgroundTaskIdentifier()
+        bgTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler { () -> Void in
+            UIApplication.sharedApplication().endBackgroundTask(bgTask)
+        }
+        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            // do some task
+            // Rangingを始める
+            manager.startRangingBeaconsInRegion(region as! CLBeaconRegion)
+        }
+    }
+    
+    func beginBackgroundUpdateTask() -> UIBackgroundTaskIdentifier {
+        return UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler({})
+    }
+    
+    func endBackgroundUpdateTask(taskID: UIBackgroundTaskIdentifier) {
+        UIApplication.sharedApplication().endBackgroundTask(taskID)
     }
     
     /*
