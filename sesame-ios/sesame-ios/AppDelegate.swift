@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let actionA = UIMutableUserNotificationAction()
         actionA.identifier = "actionA"
         actionA.title = "再送信"
-        actionA.activationMode = UIUserNotificationActivationMode.Background
+        actionA.activationMode = UIUserNotificationActivationMode.Foreground
         actionA.authenticationRequired = false
         actionA.destructive = false
         

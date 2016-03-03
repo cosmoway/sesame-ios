@@ -335,12 +335,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
                                     AudioServicesPlaySystemSound(soundIdRing)
                                     break
                                 case "400 Bad Request":
-                                    self.sendLocalNotificationWithMessage("予期せぬエラーが発生致しました。開発者に御問合せ下さい。")
                                     self.errorFlag = true
+                                    self.sendLocalNotificationWithMessage("予期せぬエラーが発生致しました。開発者に御問合せ下さい。")
                                     break
                                 case "403 Forbidden":
-                                    self.sendLocalNotificationWithMessage("認証に失敗致しました。システム管理者に登録を御確認下さい。")
                                     self.errorFlag = true
+                                    self.sendLocalNotificationWithMessage("認証に失敗致しました。システム管理者に登録を御確認下さい。")
                                     break
                                 default:
                                     self.sendLocalNotificationWithMessage(result as String)
@@ -349,8 +349,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
                                 print(result)
                                 self.sendFlag = true
                             } else {
-                                self.sendLocalNotificationWithMessage("通信処理が正常に終了されませんでした。通信環境を御確認下さい。")
                                 self.errorFlag = true
+                                self.sendLocalNotificationWithMessage("通信処理が正常に終了されませんでした。通信環境を御確認下さい。")
                                 print(error)
                                 self.sendFlag = true
                             }
