@@ -305,11 +305,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
                 case CLProximity.Far:
                     print("Proximity: Far")
                     proximity1.text = "Far"
-                    break
-                    
-                case CLProximity.Near:
-                    print("Proximity: Near")
-                    proximity1.text = "Near"
                     if (!sendFlag) {
                         let config = NSURLSessionConfiguration.defaultSessionConfiguration()
                         //短いタイムアウト
@@ -357,6 +352,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
                         })
                         task.resume()
                     }
+                    break
+                    
+                case CLProximity.Near:
+                    print("Proximity: Near")
+                    proximity1.text = "Near"
 
                     break
                     
