@@ -39,6 +39,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
     var bluetoothOn = true
     var wifiOn = true
     var errorFlag = false
+    var userDefaults = NSUserDefaults(suiteName: "group.net.cosmoway.sesame")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -300,11 +301,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
                 case CLProximity.Unknown :
                     print("Proximity: Unknown")
                     proximity1.text = "Unknown"
+                    userDefaults?.setObject("Unknown", forKey: "proximity")
+                    userDefaults?.synchronize()
                     break
                     
                 case CLProximity.Far:
                     print("Proximity: Far")
                     proximity1.text = "Far"
+                    userDefaults?.setObject("Far", forKey: "proximity")
+                    userDefaults?.synchronize()
                     if (!sendFlag) {
                         let config = NSURLSessionConfiguration.defaultSessionConfiguration()
                         //短いタイムアウト
@@ -357,13 +362,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
                 case CLProximity.Near:
                     print("Proximity: Near")
                     proximity1.text = "Near"
-
+                    userDefaults?.setObject("Near", forKey: "proximity")
+                    userDefaults?.synchronize()
                     break
                     
                 case CLProximity.Immediate:
                     print("Proximity: Immediate")
                     print("近いよ uuid:\(UIDevice.currentDevice().identifierForVendor!.UUIDString.sha256) major:\(majorID.stringValue.sha256) minor:\(minorID.stringValue.sha256)")
                     proximity1.text = "Immediate"
+                    userDefaults?.setObject("Immediate", forKey: "proximity")
+                    userDefaults?.synchronize()
                     break
                 }
                 

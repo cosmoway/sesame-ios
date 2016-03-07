@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		596764B61C8D61370092FB92 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 596764B51C8D61370092FB92 /* NotificationCenter.framework */; };
+		596764B91C8D61370092FB92 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596764B81C8D61370092FB92 /* TodayViewController.swift */; };
+		596764BC1C8D61370092FB92 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 596764BA1C8D61370092FB92 /* MainInterface.storyboard */; };
+		596764C01C8D61370092FB92 /* ProximityExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 596764B41C8D61370092FB92 /* ProximityExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		598514CD1C85A08F0088C1EF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 598514CC1C85A08F0088C1EF /* AudioToolbox.framework */; };
 		59AC43D51C7C5CD400BCE278 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AC43D41C7C5CD400BCE278 /* AppDelegate.swift */; };
 		59AC43D71C7C5CD400BCE278 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AC43D61C7C5CD400BCE278 /* ViewController.swift */; };
@@ -20,6 +24,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		596764BE1C8D61370092FB92 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 59AC43C91C7C5CD400BCE278 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 596764B31C8D61370092FB92;
+			remoteInfo = ProximityExtension;
+		};
 		59AC43E61C7C5CD400BCE278 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 59AC43C91C7C5CD400BCE278 /* Project object */;
@@ -36,8 +47,29 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		596764C41C8D61380092FB92 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				596764C01C8D61370092FB92 /* ProximityExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		5920980D1C7FF87700B20DF6 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		596764B41C8D61370092FB92 /* ProximityExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ProximityExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		596764B51C8D61370092FB92 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		596764B81C8D61370092FB92 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		596764BB1C8D61370092FB92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		596764BD1C8D61370092FB92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		596764C51C8D65480092FB92 /* ProximityExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ProximityExtension.entitlements; sourceTree = "<group>"; };
+		596764C61C8D66320092FB92 /* sesame-ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "sesame-ios.entitlements"; sourceTree = "<group>"; };
 		598514CC1C85A08F0088C1EF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		59AC43D11C7C5CD400BCE278 /* sesame-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sesame-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		59AC43D41C7C5CD400BCE278 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +91,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		596764B11C8D61370092FB92 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				596764B61C8D61370092FB92 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		59AC43CE1C7C5CD400BCE278 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -90,8 +130,20 @@
 			isa = PBXGroup;
 			children = (
 				7744F9BFDBC201825B7AF24A /* Pods.framework */,
+				596764B51C8D61370092FB92 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		596764B71C8D61370092FB92 /* ProximityExtension */ = {
+			isa = PBXGroup;
+			children = (
+				596764C51C8D65480092FB92 /* ProximityExtension.entitlements */,
+				596764B81C8D61370092FB92 /* TodayViewController.swift */,
+				596764BA1C8D61370092FB92 /* MainInterface.storyboard */,
+				596764BD1C8D61370092FB92 /* Info.plist */,
+			);
+			path = ProximityExtension;
 			sourceTree = "<group>";
 		};
 		59AC43C81C7C5CD400BCE278 = {
@@ -102,6 +154,7 @@
 				59AC43D31C7C5CD400BCE278 /* sesame-ios */,
 				59AC43E81C7C5CD400BCE278 /* sesame-iosTests */,
 				59AC43F31C7C5CD400BCE278 /* sesame-iosUITests */,
+				596764B71C8D61370092FB92 /* ProximityExtension */,
 				59AC43D21C7C5CD400BCE278 /* Products */,
 				668C691DAB0D5D6421AADCCB /* Pods */,
 				182156B9351C8D759D29DF64 /* Frameworks */,
@@ -114,6 +167,7 @@
 				59AC43D11C7C5CD400BCE278 /* sesame-ios.app */,
 				59AC43E51C7C5CD400BCE278 /* sesame-iosTests.xctest */,
 				59AC43F01C7C5CD400BCE278 /* sesame-iosUITests.xctest */,
+				596764B41C8D61370092FB92 /* ProximityExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -121,6 +175,7 @@
 		59AC43D31C7C5CD400BCE278 /* sesame-ios */ = {
 			isa = PBXGroup;
 			children = (
+				596764C61C8D66320092FB92 /* sesame-ios.entitlements */,
 				59AC43D41C7C5CD400BCE278 /* AppDelegate.swift */,
 				5920980D1C7FF87700B20DF6 /* Bridging-Header.h */,
 				59AC43D61C7C5CD400BCE278 /* ViewController.swift */,
@@ -162,6 +217,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		596764B31C8D61370092FB92 /* ProximityExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 596764C31C8D61380092FB92 /* Build configuration list for PBXNativeTarget "ProximityExtension" */;
+			buildPhases = (
+				596764B01C8D61370092FB92 /* Sources */,
+				596764B11C8D61370092FB92 /* Frameworks */,
+				596764B21C8D61370092FB92 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ProximityExtension;
+			productName = ProximityExtension;
+			productReference = 596764B41C8D61370092FB92 /* ProximityExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		59AC43D01C7C5CD400BCE278 /* sesame-ios */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 59AC43F91C7C5CD400BCE278 /* Build configuration list for PBXNativeTarget "sesame-ios" */;
@@ -172,10 +244,12 @@
 				59AC43CF1C7C5CD400BCE278 /* Resources */,
 				D60A530D77E19E0B4A457BBC /* Embed Pods Frameworks */,
 				007141CC716E1D3165D20B2D /* Copy Pods Resources */,
+				596764C41C8D61380092FB92 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				596764BF1C8D61370092FB92 /* PBXTargetDependency */,
 			);
 			name = "sesame-ios";
 			productName = "sesame-ios";
@@ -228,10 +302,22 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "坂野健";
 				TargetAttributes = {
+					596764B31C8D61370092FB92 = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 2TGX3CU8Y8;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 					59AC43D01C7C5CD400BCE278 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 2TGX3CU8Y8;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
@@ -263,11 +349,20 @@
 				59AC43D01C7C5CD400BCE278 /* sesame-ios */,
 				59AC43E41C7C5CD400BCE278 /* sesame-iosTests */,
 				59AC43EF1C7C5CD400BCE278 /* sesame-iosUITests */,
+				596764B31C8D61370092FB92 /* ProximityExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		596764B21C8D61370092FB92 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				596764BC1C8D61370092FB92 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		59AC43CF1C7C5CD400BCE278 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -343,6 +438,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		596764B01C8D61370092FB92 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				596764B91C8D61370092FB92 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		59AC43CD1C7C5CD400BCE278 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -371,6 +474,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		596764BF1C8D61370092FB92 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 596764B31C8D61370092FB92 /* ProximityExtension */;
+			targetProxy = 596764BE1C8D61370092FB92 /* PBXContainerItemProxy */;
+		};
 		59AC43E71C7C5CD400BCE278 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 59AC43D01C7C5CD400BCE278 /* sesame-ios */;
@@ -384,6 +492,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		596764BA1C8D61370092FB92 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				596764BB1C8D61370092FB92 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		59AC43D81C7C5CD400BCE278 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -403,6 +519,36 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		596764C11C8D61380092FB92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ProximityExtension/ProximityExtension.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = ProximityExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "t.sesame-ios.ProximityExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		596764C21C8D61380092FB92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ProximityExtension/ProximityExtension.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = ProximityExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "t.sesame-ios.ProximityExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		59AC43F71C7C5CD400BCE278 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -489,8 +635,10 @@
 			baseConfigurationReference = CB063F62C0FB7D9FFA70B0B6 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "sesame-ios/sesame-ios.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "sesame-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -507,8 +655,10 @@
 			baseConfigurationReference = F5616039AB1151C7E84D0E0A /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "sesame-ios/sesame-ios.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "sesame-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -571,6 +721,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		596764C31C8D61380092FB92 /* Build configuration list for PBXNativeTarget "ProximityExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				596764C11C8D61380092FB92 /* Debug */,
+				596764C21C8D61380092FB92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		59AC43CC1C7C5CD400BCE278 /* Build configuration list for PBXProject "sesame-ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
