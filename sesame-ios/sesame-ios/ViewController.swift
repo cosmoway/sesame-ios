@@ -313,9 +313,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
                     if (!sendFlag) {
                         let config = NSURLSessionConfiguration.defaultSessionConfiguration()
                         //短いタイムアウト
-                        config.timeoutIntervalForRequest = 10
+                        config.timeoutIntervalForRequest = 20
                         //長居タイムアウト
-                        config.timeoutIntervalForResource = 20
+                        config.timeoutIntervalForResource = 30
                         let session = NSURLSession(configuration: config)
                         // create the url-request
                         let urlString = "http://sesame.local:10080/?data=\((UIDevice.currentDevice().identifierForVendor!.UUIDString+"|"+majorID.stringValue+"|"+minorID.stringValue).sha256)"
