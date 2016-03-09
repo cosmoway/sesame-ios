@@ -43,7 +43,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector:"retransmission:", name: "actionPressed", object: nil)
         print("init")
         phoneUuid.text = UIDevice.currentDevice().identifierForVendor!.UUIDString
         print(UIDevice.currentDevice().identifierForVendor!.UUIDString)
@@ -141,11 +140,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
             presentViewController(alert, animated: true, completion: nil)
         }
         
-    }
-    
-    func retransmission(notification:NSNotification) {
-        sendFlag = false
-        print("押された")
     }
     
     func centralManagerDidUpdateState(central: CBCentralManager) {

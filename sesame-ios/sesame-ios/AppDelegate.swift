@@ -19,44 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 通知許可をアラート表示にて
         //これがないとpermissionエラー
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Sound, .Alert, .Badge], categories: nil))
-        /*
-        // Notification Actionの作成
-        let actionA = UIMutableUserNotificationAction()
-        actionA.identifier = "actionA"
-        actionA.title = "再送信"
-        actionA.activationMode = UIUserNotificationActivationMode.Foreground
-        actionA.authenticationRequired = false
-        actionA.destructive = false
-        
-        // Category にまとめる
-        let category = UIMutableUserNotificationCategory()
-        // identifierは必ず設定する
-        category.identifier = "custom"
-        
-        // 通知センター(上から引っ張るやつ)で表示される通知に使われる
-        category.setActions([actionA], forContext: UIUserNotificationActionContext.Minimal)
-        // アラートで表示される通知に使われる
-        category.setActions([actionA], forContext: UIUserNotificationActionContext.Default)
-        
-        // 登録する
-        let settings = UIUserNotificationSettings(
-            forTypes: [.Sound, .Alert, .Badge],
-            categories:NSSet(object: category) as? Set<UIUserNotificationCategory>)
-        application.registerUserNotificationSettings(settings);
-        */
         return true
     }
-    /*
-    func application(application: UIApplication,
-        handleActionWithIdentifier identifier:String?,
-        forLocalNotification notification:UILocalNotification,
-        completionHandler: (() -> Void)){
-            
-            NSNotificationCenter.defaultCenter().postNotificationName("actionPressed", object: nil)            
-            completionHandler()
-            
-    }
-    */
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
