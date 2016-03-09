@@ -333,6 +333,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
                                     self.sendLocalNotificationWithMessage("開錠されました。")
                                     let soundIdRing:SystemSoundID = 1002  // new-mail.caf
                                     AudioServicesPlaySystemSound(soundIdRing)
+                                    self.sendFlag = true
                                     break
                                 case "400 Bad Request":
                                     self.errorFlag = true
@@ -347,12 +348,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
                                     break
                                 }
                                 print(result)
-                                self.sendFlag = true
                             } else {
                                 self.errorFlag = true
                                 self.sendLocalNotificationWithMessage("通信処理が正常に終了されませんでした。通信環境を御確認下さい。")
                                 print(error)
-                                self.sendFlag = true
                             }
                         })
                         task.resume()

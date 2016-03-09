@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 通知許可をアラート表示にて
         //これがないとpermissionエラー
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Sound, .Alert, .Badge], categories: nil))
+        /*
         // Notification Actionの作成
         let actionA = UIMutableUserNotificationAction()
         actionA.identifier = "actionA"
@@ -42,9 +43,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             forTypes: [.Sound, .Alert, .Badge],
             categories:NSSet(object: category) as? Set<UIUserNotificationCategory>)
         application.registerUserNotificationSettings(settings);
+        */
         return true
     }
-    
+    /*
     func application(application: UIApplication,
         handleActionWithIdentifier identifier:String?,
         forLocalNotification notification:UILocalNotification,
@@ -54,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             completionHandler()
             
     }
-
+    */
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
