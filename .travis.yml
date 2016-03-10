@@ -1,0 +1,5 @@
+language: objective-c
+osx_image: xcode7.2
+xcode_workspace: sesame-ios.xcworkspace
+xcode_scheme: sesame-ios
+xcode_sdk: iphonesimulator
