@@ -324,7 +324,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
                                 let result = NSString(data: data!, encoding: NSUTF8StringEncoding)!
                                 switch (result) {
                                 case "200 OK":
-                                    self.sendLocalNotificationWithMessage("開錠されました。")
+                                    self.sendLocalNotificationWithMessage("解錠されました。")
                                     let soundIdRing:SystemSoundID = 1002  // new-mail.caf
                                     AudioServicesPlaySystemSound(soundIdRing)
                                     self.sendFlag = true
