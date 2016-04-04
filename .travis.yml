@@ -16,7 +16,7 @@ before_script:
   - security import ./.travis/travis.p12 -k ~/Library/Keychains/ios-build.keychain -P ${KEY_PASSWORD} -T /usr/bin/codesign
   # save profile
   - mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
-  - cp "./.travis/profiles/travis.mobileprovision" ~/Library/MobileDevice/Provisioning\ Profiles/
+  - cp "./.travis/travis.mobileprovision" ~/Library/MobileDevice/Provisioning\ Profiles/
 script:
   - xcodebuild -workspace ${APP_NAME}.xcworkspace -scheme ${APP_NAME} -sdk iphoneos -configuration Release CODE_SIGN_IDENTITY="${DEVELOPER_NAME}" archive -archivePath ./build/${APP_NAME}.xcarchive | xcpretty -f `xcpretty-travis-formatter` && exit ${PIPESTATUS[0]}
   - xcodebuild -exportArchive -exportFormat IPA -archivePath ./build/${APP_NAME}.xcarchive -exportPath ./build/${APP_NAME}.ipa -exportProvisioningProfile "${PROFILE_NAME}" | xcpretty -f `xcpretty-travis-formatter` && exit ${PIPESTATUS[0]}
