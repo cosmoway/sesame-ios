@@ -16,7 +16,7 @@ before_script:
   - security import ./.travis/travis.p12 -k ~/Library/Keychains/ios-build.keychain -P ${KEY_PASSWORD} -T /usr/bin/codesign
   # save profile
   - mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
-  - cp "./.travis/travis.mobileprovision" ~/Library/MobileDevice/Provisioning\ Profiles/
+  - cp ./.travis/travis*.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
 script:
   - xcodebuild -workspace ${APP_NAME}.xcworkspace -scheme ${APP_NAME} -sdk iphoneos -configuration Release CODE_SIGN_IDENTITY="${DEVELOPER_NAME}" archive -archivePath ./build/${APP_NAME}.xcarchive | xcpretty -f `xcpretty-travis-formatter` && exit ${PIPESTATUS[0]}
   - xcodebuild -exportArchive -exportFormat IPA -archivePath ./build/${APP_NAME}.xcarchive -exportPath ./build/${APP_NAME}.ipa -exportProvisioningProfile "${PROFILE_NAME}" | xcpretty -f `xcpretty-travis-formatter` && exit ${PIPESTATUS[0]}
@@ -25,7 +25,7 @@ after_success:
   - curl -F "file=@build/${APP_NAME}.ipa" -F "token=${DEPLOYGATE_API_KEY}" https://deploygate.com/api/users/${DEPLOYGATE_USER_NAME}/apps
 after_script:
   - security delete-keychain ios-build.keychain
-  - rm -f "~/Library/MobileDevice/Provisioning Profiles/${PROFILE_NAME}.mobileprovision"
+  - rm -f "~/Library/MobileDevice/Provisioning Profiles/${PROFILE_NAME}*.mobileprovision"
 branches:
   only:
     - master
