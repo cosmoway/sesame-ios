@@ -527,7 +527,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ProximityExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "t.sesame-ios.ProximityExtension";
+				PRODUCT_BUNDLE_IDENTIFIER = net.cosmoway.sesame.ProximityExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
@@ -542,7 +542,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				INFOPLIST_FILE = ProximityExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "t.sesame-ios.ProximityExtension";
+				PRODUCT_BUNDLE_IDENTIFIER = net.cosmoway.sesame.ProximityExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
@@ -679,7 +679,7 @@
 				CODE_SIGN_IDENTITY = "";
 				INFOPLIST_FILE = "sesame-iosTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "t.sesame-iosTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.cosmoway.sesame-iosTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/sesame-ios.app/sesame-ios";
 			};
@@ -692,7 +692,7 @@
 				CODE_SIGN_IDENTITY = "";
 				INFOPLIST_FILE = "sesame-iosTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "t.sesame-iosTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.cosmoway.sesame-iosTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/sesame-ios.app/sesame-ios";
 			};
@@ -704,7 +704,7 @@
 				CODE_SIGN_IDENTITY = "";
 				INFOPLIST_FILE = "sesame-iosUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "t.sesame-iosUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.cosmoway.sesame-iosUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = "sesame-ios";
 				USES_XCTRUNNER = YES;
@@ -717,7 +717,7 @@
 				CODE_SIGN_IDENTITY = "";
 				INFOPLIST_FILE = "sesame-iosUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "t.sesame-iosUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.cosmoway.sesame-iosUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = "sesame-ios";
 				USES_XCTRUNNER = YES;
